@@ -26,27 +26,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "method_call"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "function_call"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "array"
-        },
-        {
-          "type": "SYMBOL",
           "name": "number"
         },
         {
           "type": "SYMBOL",
           "name": "string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "char"
         },
         {
           "type": "SYMBOL",
@@ -59,10 +43,6 @@
         {
           "type": "SYMBOL",
           "name": "pattern_class"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "class_name"
         },
         {
           "type": "SYMBOL",
@@ -105,33 +85,8 @@
       ]
     },
     "number": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "\\d+\\.\\d+"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\d+"
-        },
-        {
-          "type": "PATTERN",
-          "value": "0x[0-9a-fA-F]+"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\d+[eE][+-]?\\d+"
-        },
-        {
-          "type": "PATTERN",
-          "value": "pi"
-        },
-        {
-          "type": "PATTERN",
-          "value": "inf"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "\\d+(\\.\\d+)?"
     },
     "string": {
       "type": "SEQ",
@@ -150,10 +105,6 @@
         }
       ]
     },
-    "char": {
-      "type": "PATTERN",
-      "value": "\\$."
-    },
     "symbol": {
       "type": "SEQ",
       "members": [
@@ -167,177 +118,6 @@
         }
       ]
     },
-    "method_call": {
-      "type": "PREC",
-      "value": 2,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "identifier"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "class_name"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "ugen"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "pattern_class"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "."
-          },
-          {
-            "type": "PATTERN",
-            "value": "[a-zA-Z_][a-zA-Z0-9_]*"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "("
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_arg_list"
-                      },
-                      {
-                        "type": "BLANK"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ")"
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "function_call": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "identifier"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "class_name"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "ugen"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "pattern_class"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "("
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_arg_list"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": ")"
-          }
-        ]
-      }
-    },
-    "array": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "["
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_arg_list"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "]"
-        }
-      ]
-    },
-    "_arg_list": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_item"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_item"
-              }
-            ]
-          }
-        }
-      ]
-    },
     "keyword": {
       "type": "CHOICE",
       "members": [
@@ -348,14 +128,6 @@
         {
           "type": "STRING",
           "value": "arg"
-        },
-        {
-          "type": "STRING",
-          "value": "classvar"
-        },
-        {
-          "type": "STRING",
-          "value": "const"
         },
         {
           "type": "STRING",
@@ -379,54 +151,6 @@
         },
         {
           "type": "STRING",
-          "value": "case"
-        },
-        {
-          "type": "STRING",
-          "value": "switch"
-        },
-        {
-          "type": "STRING",
-          "value": "try"
-        },
-        {
-          "type": "STRING",
-          "value": "catch"
-        },
-        {
-          "type": "STRING",
-          "value": "finally"
-        },
-        {
-          "type": "STRING",
-          "value": "throw"
-        },
-        {
-          "type": "STRING",
-          "value": "break"
-        },
-        {
-          "type": "STRING",
-          "value": "continue"
-        },
-        {
-          "type": "STRING",
-          "value": "return"
-        },
-        {
-          "type": "STRING",
-          "value": "yield"
-        },
-        {
-          "type": "STRING",
-          "value": "class"
-        },
-        {
-          "type": "STRING",
-          "value": "extends"
-        },
-        {
-          "type": "STRING",
           "value": "true"
         },
         {
@@ -439,39 +163,11 @@
         },
         {
           "type": "STRING",
-          "value": "inf"
-        },
-        {
-          "type": "STRING",
-          "value": "pi"
-        },
-        {
-          "type": "STRING",
           "value": "this"
         },
         {
           "type": "STRING",
           "value": "super"
-        },
-        {
-          "type": "STRING",
-          "value": "thisFunction"
-        },
-        {
-          "type": "STRING",
-          "value": "thisMethod"
-        },
-        {
-          "type": "STRING",
-          "value": "thisProcess"
-        },
-        {
-          "type": "STRING",
-          "value": "currentEnvironment"
-        },
-        {
-          "type": "STRING",
-          "value": "topEnvironment"
         }
       ]
     },
@@ -481,10 +177,6 @@
         {
           "type": "STRING",
           "value": "SynthDef"
-        },
-        {
-          "type": "STRING",
-          "value": "Synth"
         },
         {
           "type": "STRING",
@@ -500,46 +192,6 @@
         },
         {
           "type": "STRING",
-          "value": "LFSaw"
-        },
-        {
-          "type": "STRING",
-          "value": "LFPulse"
-        },
-        {
-          "type": "STRING",
-          "value": "LFTri"
-        },
-        {
-          "type": "STRING",
-          "value": "Blip"
-        },
-        {
-          "type": "STRING",
-          "value": "Klang"
-        },
-        {
-          "type": "STRING",
-          "value": "Klank"
-        },
-        {
-          "type": "STRING",
-          "value": "Formant"
-        },
-        {
-          "type": "STRING",
-          "value": "Impulse"
-        },
-        {
-          "type": "STRING",
-          "value": "PMOsc"
-        },
-        {
-          "type": "STRING",
-          "value": "FM7"
-        },
-        {
-          "type": "STRING",
           "value": "WhiteNoise"
         },
         {
@@ -548,35 +200,27 @@
         },
         {
           "type": "STRING",
-          "value": "BrownNoise"
+          "value": "EnvGen"
         },
         {
           "type": "STRING",
-          "value": "GrayNoise"
+          "value": "Env"
         },
         {
           "type": "STRING",
-          "value": "ClipNoise"
+          "value": "Out"
         },
         {
           "type": "STRING",
-          "value": "LFNoise0"
+          "value": "In"
         },
         {
           "type": "STRING",
-          "value": "LFNoise1"
+          "value": "Mix"
         },
         {
           "type": "STRING",
-          "value": "LFNoise2"
-        },
-        {
-          "type": "STRING",
-          "value": "Dust"
-        },
-        {
-          "type": "STRING",
-          "value": "Dust2"
+          "value": "Pan2"
         },
         {
           "type": "STRING",
@@ -592,291 +236,11 @@
         },
         {
           "type": "STRING",
-          "value": "BRF"
-        },
-        {
-          "type": "STRING",
-          "value": "Resonz"
-        },
-        {
-          "type": "STRING",
-          "value": "RLPF"
-        },
-        {
-          "type": "STRING",
-          "value": "RHPF"
-        },
-        {
-          "type": "STRING",
-          "value": "Integrator"
-        },
-        {
-          "type": "STRING",
-          "value": "LeakDC"
-        },
-        {
-          "type": "STRING",
-          "value": "OnePole"
-        },
-        {
-          "type": "STRING",
-          "value": "OneZero"
-        },
-        {
-          "type": "STRING",
-          "value": "EnvGen"
-        },
-        {
-          "type": "STRING",
-          "value": "Env"
-        },
-        {
-          "type": "STRING",
-          "value": "Line"
-        },
-        {
-          "type": "STRING",
-          "value": "XLine"
-        },
-        {
-          "type": "STRING",
-          "value": "Decay"
-        },
-        {
-          "type": "STRING",
-          "value": "Decay2"
-        },
-        {
-          "type": "STRING",
-          "value": "Linen"
-        },
-        {
-          "type": "STRING",
-          "value": "ASR"
-        },
-        {
-          "type": "STRING",
-          "value": "ADSR"
-        },
-        {
-          "type": "STRING",
-          "value": "DetectSilence"
-        },
-        {
-          "type": "STRING",
           "value": "Delay1"
         },
         {
           "type": "STRING",
-          "value": "Delay2"
-        },
-        {
-          "type": "STRING",
-          "value": "DelayN"
-        },
-        {
-          "type": "STRING",
-          "value": "DelayL"
-        },
-        {
-          "type": "STRING",
-          "value": "DelayC"
-        },
-        {
-          "type": "STRING",
-          "value": "CombN"
-        },
-        {
-          "type": "STRING",
-          "value": "CombL"
-        },
-        {
-          "type": "STRING",
-          "value": "CombC"
-        },
-        {
-          "type": "STRING",
-          "value": "AllpassN"
-        },
-        {
-          "type": "STRING",
-          "value": "AllpassL"
-        },
-        {
-          "type": "STRING",
-          "value": "AllpassC"
-        },
-        {
-          "type": "STRING",
           "value": "FreeVerb"
-        },
-        {
-          "type": "STRING",
-          "value": "GVerb"
-        },
-        {
-          "type": "STRING",
-          "value": "JPverb"
-        },
-        {
-          "type": "STRING",
-          "value": "Compander"
-        },
-        {
-          "type": "STRING",
-          "value": "Limiter"
-        },
-        {
-          "type": "STRING",
-          "value": "Normalizer"
-        },
-        {
-          "type": "STRING",
-          "value": "Gate"
-        },
-        {
-          "type": "STRING",
-          "value": "In"
-        },
-        {
-          "type": "STRING",
-          "value": "Out"
-        },
-        {
-          "type": "STRING",
-          "value": "ReplaceOut"
-        },
-        {
-          "type": "STRING",
-          "value": "OffsetOut"
-        },
-        {
-          "type": "STRING",
-          "value": "LocalIn"
-        },
-        {
-          "type": "STRING",
-          "value": "LocalOut"
-        },
-        {
-          "type": "STRING",
-          "value": "InFeedback"
-        },
-        {
-          "type": "STRING",
-          "value": "SoundIn"
-        },
-        {
-          "type": "STRING",
-          "value": "AudioIn"
-        },
-        {
-          "type": "STRING",
-          "value": "Mix"
-        },
-        {
-          "type": "STRING",
-          "value": "Splay"
-        },
-        {
-          "type": "STRING",
-          "value": "Pan2"
-        },
-        {
-          "type": "STRING",
-          "value": "Pan4"
-        },
-        {
-          "type": "STRING",
-          "value": "PanAz"
-        },
-        {
-          "type": "STRING",
-          "value": "Balance2"
-        },
-        {
-          "type": "STRING",
-          "value": "Rotate2"
-        },
-        {
-          "type": "STRING",
-          "value": "XFade2"
-        },
-        {
-          "type": "STRING",
-          "value": "LinXFade2"
-        },
-        {
-          "type": "STRING",
-          "value": "Select"
-        },
-        {
-          "type": "STRING",
-          "value": "LinExp"
-        },
-        {
-          "type": "STRING",
-          "value": "LinLin"
-        },
-        {
-          "type": "STRING",
-          "value": "Clip"
-        },
-        {
-          "type": "STRING",
-          "value": "Wrap"
-        },
-        {
-          "type": "STRING",
-          "value": "Fold"
-        },
-        {
-          "type": "STRING",
-          "value": "Trig"
-        },
-        {
-          "type": "STRING",
-          "value": "Trig1"
-        },
-        {
-          "type": "STRING",
-          "value": "TrigHold"
-        },
-        {
-          "type": "STRING",
-          "value": "Latch"
-        },
-        {
-          "type": "STRING",
-          "value": "Sample"
-        },
-        {
-          "type": "STRING",
-          "value": "PulseCount"
-        },
-        {
-          "type": "STRING",
-          "value": "PulseDivider"
-        },
-        {
-          "type": "STRING",
-          "value": "Amplitude"
-        },
-        {
-          "type": "STRING",
-          "value": "Pitch"
-        },
-        {
-          "type": "STRING",
-          "value": "ZeroCrossing"
-        },
-        {
-          "type": "STRING",
-          "value": "FFT"
-        },
-        {
-          "type": "STRING",
-          "value": "IFFT"
         }
       ]
     },
@@ -889,19 +253,7 @@
         },
         {
           "type": "STRING",
-          "value": "Pmono"
-        },
-        {
-          "type": "STRING",
-          "value": "PmonoArtic"
-        },
-        {
-          "type": "STRING",
           "value": "Pseq"
-        },
-        {
-          "type": "STRING",
-          "value": "Pser"
         },
         {
           "type": "STRING",
@@ -909,87 +261,7 @@
         },
         {
           "type": "STRING",
-          "value": "Pxrand"
-        },
-        {
-          "type": "STRING",
-          "value": "Pwrand"
-        },
-        {
-          "type": "STRING",
-          "value": "Pshuf"
-        },
-        {
-          "type": "STRING",
-          "value": "Pwhite"
-        },
-        {
-          "type": "STRING",
-          "value": "Pbrown"
-        },
-        {
-          "type": "STRING",
-          "value": "Pgbrown"
-        },
-        {
-          "type": "STRING",
-          "value": "Pexprand"
-        },
-        {
-          "type": "STRING",
-          "value": "Plprand"
-        },
-        {
-          "type": "STRING",
-          "value": "Phprand"
-        },
-        {
-          "type": "STRING",
-          "value": "Pkey"
-        },
-        {
-          "type": "STRING",
-          "value": "Pn"
-        },
-        {
-          "type": "STRING",
-          "value": "Pstutter"
-        },
-        {
-          "type": "STRING",
-          "value": "PdurStutter"
-        },
-        {
-          "type": "STRING",
-          "value": "Ppar"
-        },
-        {
-          "type": "STRING",
-          "value": "Pspawn"
-        },
-        {
-          "type": "STRING",
-          "value": "Pfx"
-        },
-        {
-          "type": "STRING",
-          "value": "Pfxb"
-        },
-        {
-          "type": "STRING",
           "value": "Pdef"
-        },
-        {
-          "type": "STRING",
-          "value": "Pdefn"
-        },
-        {
-          "type": "STRING",
-          "value": "Tdef"
-        },
-        {
-          "type": "STRING",
-          "value": "Ndef"
         },
         {
           "type": "STRING",
@@ -998,32 +270,12 @@
         {
           "type": "STRING",
           "value": "Task"
-        },
-        {
-          "type": "STRING",
-          "value": "Prout"
-        },
-        {
-          "type": "STRING",
-          "value": "Pattern"
-        },
-        {
-          "type": "STRING",
-          "value": "ListPattern"
-        },
-        {
-          "type": "STRING",
-          "value": "FuncPattern"
         }
       ]
     },
-    "class_name": {
-      "type": "PATTERN",
-      "value": "[A-Z][a-zA-Z0-9_]*"
-    },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-z_~][a-zA-Z0-9_]*"
+      "value": "[a-zA-Z_][a-zA-Z0-9_]*"
     }
   },
   "extras": [
