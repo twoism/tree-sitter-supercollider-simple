@@ -1,0 +1,17 @@
+name = "SuperCollider"
+path_suffixes = ["sc", "scd"]
+line_comments = ["// "]
+block_comments = [["/*", "*/"]]
+tab_size = 4
+hard_tabs = false
+
+# SuperCollider-specific word characters
+word_characters = ["_", "~"]
+
+# Auto-pairs for brackets
+auto_pairs = [
+  { open = "(", close = ")" },
+  { open = "[", close = "]" },
+  { open = "{", close = "}" },
+  { open = "\"", close = "\"" },
+]

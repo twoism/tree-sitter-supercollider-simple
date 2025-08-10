@@ -1,19 +1,30 @@
 [
   {
-    "type": "source_file",
+    "type": "array",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": false,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "block_comment",
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "class_name",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -29,15 +40,15 @@
           "named": true
         },
         {
+          "type": "method_call",
+          "named": true
+        },
+        {
           "type": "number",
           "named": true
         },
         {
-          "type": "operator",
-          "named": true
-        },
-        {
-          "type": "punctuation",
+          "type": "pattern_class",
           "named": true
         },
         {
@@ -47,6 +58,10 @@
         {
           "type": "symbol",
           "named": true
+        },
+        {
+          "type": "ugen",
+          "named": true
         }
       ]
     }
@@ -54,43 +69,965 @@
   {
     "type": "block_comment",
     "named": true,
-    "extra": true
+    "extra": true,
+    "fields": {}
+  },
+  {
+    "type": "function_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "block_comment",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "class_name",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "line_comment",
+          "named": true
+        },
+        {
+          "type": "method_call",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "pattern_class",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "ugen",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "extra": true,
+    "fields": {}
+  },
+  {
+    "type": "method_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "block_comment",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "class_name",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "line_comment",
+          "named": true
+        },
+        {
+          "type": "method_call",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "pattern_class",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "ugen",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "pattern_class",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "block_comment",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "class_name",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "line_comment",
+          "named": true
+        },
+        {
+          "type": "method_call",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "pattern_class",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        },
+        {
+          "type": "ugen",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "symbol",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ugen",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "/*",
+    "named": false
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": "ADSR",
+    "named": false
+  },
+  {
+    "type": "ASR",
+    "named": false
+  },
+  {
+    "type": "AllpassC",
+    "named": false
+  },
+  {
+    "type": "AllpassL",
+    "named": false
+  },
+  {
+    "type": "AllpassN",
+    "named": false
+  },
+  {
+    "type": "Amplitude",
+    "named": false
+  },
+  {
+    "type": "AudioIn",
+    "named": false
+  },
+  {
+    "type": "BPF",
+    "named": false
+  },
+  {
+    "type": "BRF",
+    "named": false
+  },
+  {
+    "type": "Balance2",
+    "named": false
+  },
+  {
+    "type": "Blip",
+    "named": false
+  },
+  {
+    "type": "BrownNoise",
+    "named": false
+  },
+  {
+    "type": "Clip",
+    "named": false
+  },
+  {
+    "type": "ClipNoise",
+    "named": false
+  },
+  {
+    "type": "CombC",
+    "named": false
+  },
+  {
+    "type": "CombL",
+    "named": false
+  },
+  {
+    "type": "CombN",
+    "named": false
+  },
+  {
+    "type": "Compander",
+    "named": false
+  },
+  {
+    "type": "Decay",
+    "named": false
+  },
+  {
+    "type": "Decay2",
+    "named": false
+  },
+  {
+    "type": "Delay1",
+    "named": false
+  },
+  {
+    "type": "Delay2",
+    "named": false
+  },
+  {
+    "type": "DelayC",
+    "named": false
+  },
+  {
+    "type": "DelayL",
+    "named": false
+  },
+  {
+    "type": "DelayN",
+    "named": false
+  },
+  {
+    "type": "DetectSilence",
+    "named": false
+  },
+  {
+    "type": "Dust",
+    "named": false
+  },
+  {
+    "type": "Dust2",
+    "named": false
+  },
+  {
+    "type": "Env",
+    "named": false
+  },
+  {
+    "type": "EnvGen",
+    "named": false
+  },
+  {
+    "type": "FFT",
+    "named": false
+  },
+  {
+    "type": "FM7",
+    "named": false
+  },
+  {
+    "type": "Fold",
+    "named": false
+  },
+  {
+    "type": "Formant",
+    "named": false
+  },
+  {
+    "type": "FreeVerb",
+    "named": false
+  },
+  {
+    "type": "FuncPattern",
+    "named": false
+  },
+  {
+    "type": "GVerb",
+    "named": false
+  },
+  {
+    "type": "Gate",
+    "named": false
+  },
+  {
+    "type": "GrayNoise",
+    "named": false
+  },
+  {
+    "type": "HPF",
+    "named": false
+  },
+  {
+    "type": "IFFT",
+    "named": false
+  },
+  {
+    "type": "Impulse",
+    "named": false
+  },
+  {
+    "type": "In",
+    "named": false
+  },
+  {
+    "type": "InFeedback",
+    "named": false
+  },
+  {
+    "type": "Integrator",
+    "named": false
+  },
+  {
+    "type": "JPverb",
+    "named": false
+  },
+  {
+    "type": "Klang",
+    "named": false
+  },
+  {
+    "type": "Klank",
+    "named": false
+  },
+  {
+    "type": "LFNoise0",
+    "named": false
+  },
+  {
+    "type": "LFNoise1",
+    "named": false
+  },
+  {
+    "type": "LFNoise2",
+    "named": false
+  },
+  {
+    "type": "LFPulse",
+    "named": false
+  },
+  {
+    "type": "LFSaw",
+    "named": false
+  },
+  {
+    "type": "LFTri",
+    "named": false
+  },
+  {
+    "type": "LPF",
+    "named": false
+  },
+  {
+    "type": "Latch",
+    "named": false
+  },
+  {
+    "type": "LeakDC",
+    "named": false
+  },
+  {
+    "type": "Limiter",
+    "named": false
+  },
+  {
+    "type": "LinExp",
+    "named": false
+  },
+  {
+    "type": "LinLin",
+    "named": false
+  },
+  {
+    "type": "LinXFade2",
+    "named": false
+  },
+  {
+    "type": "Line",
+    "named": false
+  },
+  {
+    "type": "Linen",
+    "named": false
+  },
+  {
+    "type": "ListPattern",
+    "named": false
+  },
+  {
+    "type": "LocalIn",
+    "named": false
+  },
+  {
+    "type": "LocalOut",
+    "named": false
+  },
+  {
+    "type": "Mix",
+    "named": false
+  },
+  {
+    "type": "Ndef",
+    "named": false
+  },
+  {
+    "type": "Normalizer",
+    "named": false
+  },
+  {
+    "type": "OffsetOut",
+    "named": false
+  },
+  {
+    "type": "OnePole",
+    "named": false
+  },
+  {
+    "type": "OneZero",
+    "named": false
+  },
+  {
+    "type": "Out",
+    "named": false
+  },
+  {
+    "type": "PMOsc",
+    "named": false
+  },
+  {
+    "type": "Pan2",
+    "named": false
+  },
+  {
+    "type": "Pan4",
+    "named": false
+  },
+  {
+    "type": "PanAz",
+    "named": false
+  },
+  {
+    "type": "Pattern",
+    "named": false
+  },
+  {
+    "type": "Pbind",
+    "named": false
+  },
+  {
+    "type": "Pbrown",
+    "named": false
+  },
+  {
+    "type": "Pdef",
+    "named": false
+  },
+  {
+    "type": "Pdefn",
+    "named": false
+  },
+  {
+    "type": "PdurStutter",
+    "named": false
+  },
+  {
+    "type": "Pexprand",
+    "named": false
+  },
+  {
+    "type": "Pfx",
+    "named": false
+  },
+  {
+    "type": "Pfxb",
+    "named": false
+  },
+  {
+    "type": "Pgbrown",
+    "named": false
+  },
+  {
+    "type": "Phprand",
+    "named": false
+  },
+  {
+    "type": "PinkNoise",
+    "named": false
+  },
+  {
+    "type": "Pitch",
+    "named": false
+  },
+  {
+    "type": "Pkey",
+    "named": false
+  },
+  {
+    "type": "Plprand",
+    "named": false
+  },
+  {
+    "type": "Pmono",
+    "named": false
+  },
+  {
+    "type": "PmonoArtic",
+    "named": false
+  },
+  {
+    "type": "Pn",
+    "named": false
+  },
+  {
+    "type": "Ppar",
+    "named": false
+  },
+  {
+    "type": "Prand",
+    "named": false
+  },
+  {
+    "type": "Prout",
+    "named": false
+  },
+  {
+    "type": "Pseq",
+    "named": false
+  },
+  {
+    "type": "Pser",
+    "named": false
+  },
+  {
+    "type": "Pshuf",
+    "named": false
+  },
+  {
+    "type": "Pspawn",
+    "named": false
+  },
+  {
+    "type": "Pstutter",
+    "named": false
+  },
+  {
+    "type": "Pulse",
+    "named": false
+  },
+  {
+    "type": "PulseCount",
+    "named": false
+  },
+  {
+    "type": "PulseDivider",
+    "named": false
+  },
+  {
+    "type": "Pwhite",
+    "named": false
+  },
+  {
+    "type": "Pwrand",
+    "named": false
+  },
+  {
+    "type": "Pxrand",
+    "named": false
+  },
+  {
+    "type": "RHPF",
+    "named": false
+  },
+  {
+    "type": "RLPF",
+    "named": false
+  },
+  {
+    "type": "ReplaceOut",
+    "named": false
+  },
+  {
+    "type": "Resonz",
+    "named": false
+  },
+  {
+    "type": "Rotate2",
+    "named": false
+  },
+  {
+    "type": "Routine",
+    "named": false
+  },
+  {
+    "type": "Sample",
+    "named": false
+  },
+  {
+    "type": "Saw",
+    "named": false
+  },
+  {
+    "type": "Select",
+    "named": false
+  },
+  {
+    "type": "SinOsc",
+    "named": false
+  },
+  {
+    "type": "SoundIn",
+    "named": false
+  },
+  {
+    "type": "Splay",
+    "named": false
+  },
+  {
+    "type": "Synth",
+    "named": false
+  },
+  {
+    "type": "SynthDef",
+    "named": false
+  },
+  {
+    "type": "Task",
+    "named": false
+  },
+  {
+    "type": "Tdef",
+    "named": false
+  },
+  {
+    "type": "Trig",
+    "named": false
+  },
+  {
+    "type": "Trig1",
+    "named": false
+  },
+  {
+    "type": "TrigHold",
+    "named": false
+  },
+  {
+    "type": "WhiteNoise",
+    "named": false
+  },
+  {
+    "type": "Wrap",
+    "named": false
+  },
+  {
+    "type": "XFade2",
+    "named": false
+  },
+  {
+    "type": "XLine",
+    "named": false
+  },
+  {
+    "type": "ZeroCrossing",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "\\",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "arg",
+    "named": false
+  },
+  {
+    "type": "break",
+    "named": false
+  },
+  {
+    "type": "case",
+    "named": false
+  },
+  {
+    "type": "catch",
+    "named": false
+  },
+  {
+    "type": "char",
+    "named": true
+  },
+  {
+    "type": "class",
+    "named": false
   },
   {
     "type": "class_name",
     "named": true
   },
   {
+    "type": "classvar",
+    "named": false
+  },
+  {
+    "type": "const",
+    "named": false
+  },
+  {
+    "type": "continue",
+    "named": false
+  },
+  {
+    "type": "currentEnvironment",
+    "named": false
+  },
+  {
+    "type": "do",
+    "named": false
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "extends",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "finally",
+    "named": false
+  },
+  {
+    "type": "for",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
   },
   {
-    "type": "keyword",
-    "named": true
+    "type": "if",
+    "named": false
   },
   {
-    "type": "line_comment",
-    "named": true,
-    "extra": true
+    "type": "inf",
+    "named": false
   },
   {
-    "type": "number",
-    "named": true
+    "type": "nil",
+    "named": false
   },
   {
-    "type": "operator",
-    "named": true
+    "type": "pi",
+    "named": false
   },
   {
-    "type": "punctuation",
-    "named": true
+    "type": "return",
+    "named": false
   },
   {
-    "type": "string",
-    "named": true
+    "type": "super",
+    "named": false
   },
   {
-    "type": "symbol",
-    "named": true
+    "type": "switch",
+    "named": false
+  },
+  {
+    "type": "this",
+    "named": false
+  },
+  {
+    "type": "thisFunction",
+    "named": false
+  },
+  {
+    "type": "thisMethod",
+    "named": false
+  },
+  {
+    "type": "thisProcess",
+    "named": false
+  },
+  {
+    "type": "throw",
+    "named": false
+  },
+  {
+    "type": "topEnvironment",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "try",
+    "named": false
+  },
+  {
+    "type": "var",
+    "named": false
+  },
+  {
+    "type": "while",
+    "named": false
+  },
+  {
+    "type": "yield",
+    "named": false
   }
 ]

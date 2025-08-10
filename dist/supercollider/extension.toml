@@ -1,0 +1,7 @@
+id = "supercollider"
+name = "SuperCollider"
+description = "SuperCollider language support"
+version = "0.1.0"
+schema_version = 1
+authors = ["SuperCollider Community"]
+repository = "https://github.com/supercollider-extension/zed-supercollider"
