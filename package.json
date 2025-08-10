@@ -1,0 +1,25 @@
+{
+  "name": "tree-sitter-supercollider",
+  "version": "1.0.0",
+  "description": "SuperCollider grammar for tree-sitter",
+  "main": "bindings/node",
+  "keywords": [
+    "parser",
+    "lexer",
+    "supercollider"
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/**",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.supercollider",
+      "file-types": ["sc", "scd"]
+    }
+  ]
+}
