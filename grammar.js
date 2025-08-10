@@ -1,72 +1,32 @@
 module.exports = grammar({
   name: 'supercollider',
 
-  extras: $ => [
-    /\s/,
-    $.line_comment,
-    $.block_comment,
-  ],
-
   rules: {
-    source_file: $ => repeat($._definition),
+    source_file: $ => repeat($._item),
 
-    _definition: $ => choice(
-      $.line_comment,
-      $.block_comment,
-      $.keyword,
-      $.class_name,
-      $.identifier,
-      $.number,
+    _item: $ => choice(
+      $.comment,
+      $.number,  
       $.string,
-      $.symbol,
-      $.operator,
-      $.punctuation,
-      /./  // Catch any other character
+      $.keyword,
+      $.identifier,
+      /./
     ),
 
-    line_comment: $ => token(seq('//', /.*/)),
-    
-    block_comment: $ => token(seq(
-      '/*',
-      /[^*]*\*+([^/*][^*]*\*+)*/,
-      '/'
-    )),
-
-    keyword: $ => token(choice(
-      'var', 'arg', 'classvar', 'const',
-      'if', 'else', 'while', 'for', 'do', 'case', 'switch',
-      'true', 'false', 'nil', 'inf',
-      'this', 'super', 'thisFunction', 'thisMethod', 'thisProcess',
-      'SynthDef', 'Pbind', 'Pdef', 'Tdef', 'Routine',
-      'Out', 'In', 'SinOsc', 'Saw', 'Pulse', 'WhiteNoise', 'PinkNoise',
-      'EnvGen', 'Env', 'ADSR', 'Line', 'XLine',
-      'Mix', 'Pan2', 'Out'
-    )),
-
-    class_name: $ => /[A-Z][a-zA-Z0-9_]*/,
-
-    identifier: $ => /[a-z~][a-zA-Z0-9_]*/,
+    comment: $ => choice(
+      seq('//', /.*/),
+      seq('/*', /[^*]*\*+([^/*][^*]*\*+)*/, '/')
+    ),
 
     number: $ => /\d+(\.\d+)?/,
 
     string: $ => /"[^"]*"/,
 
-    symbol: $ => /\\[a-zA-Z_][a-zA-Z0-9_]*/,
+    keyword: $ => choice(
+      'SynthDef', 'Pbind', 'Out', 'var', 'arg',
+      'if', 'else', 'while', 'for'
+    ),
 
-    operator: $ => token(choice(
-      '+', '-', '*', '/', '%', '**',
-      '==', '!=', '<', '>', '<=', '>=',
-      '=', '!', '?', ':',
-      '&&', '||',
-      '++', '--',
-      '..', '...',
-      '|>', '<|', '<<', '>>',
-      '@', '@@', '@|@'
-    )),
-
-    punctuation: $ => token(choice(
-      '(', ')', '[', ']', '{', '}',
-      ';', ',', '.', '|', '~'
-    )),
+    identifier: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,
   }
 });
